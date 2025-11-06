@@ -111,8 +111,32 @@
 
   <!-- Romantic background music -->
   <audio id="loveMusic" preload="auto">
-  <source src="https://raw.githubusercontent.com/earnvin/ANANYA-GREETING/9865f639c405f588b11c5856dd458feb8e790f92/WhatsApp%20Audio%202025-11-06%20at%2018.16.48_2af8c0f5.mp3" type="audio/mpeg">
+  <source id="musicSource" src="https://raw.githubusercontent.com/earnvin/ANANYA-GREETING/main/song1.mp3" type="audio/mpeg">
 </audio>
+
+<button id="loveBtn">💖 Play Love Song 💖</button>
+
+<script>
+const songs = [
+  "https://raw.githubusercontent.com/earnvin/ANANYA-GREETING/daede84680b4450fe7fda6ce93506c9295283d7d/WhatsApp%20Audio%202025-11-06%20at%2018.16.52_5836e2d4.mp3",
+  "https://raw.githubusercontent.com/earnvin/ANANYA-GREETING/9865f639c405f588b11c5856dd458feb8e790f92/WhatsApp%20Audio%202025-11-06%20at%2018.16.48_2af8c0f5.mp3"
+];
+
+let currentSong = 0;
+const audio = document.getElementById("loveMusic");
+const source = document.getElementById("musicSource");
+const btn = document.getElementById("loveBtn");
+
+btn.addEventListener("click", () => {
+  // Change song
+  currentSong = (currentSong + 1) % songs.length;
+  source.src = songs[currentSong];
+  audio.load();
+  audio.play();
+  btn.textContent = `💞 Playing Song ${currentSong + 1} 💞`;
+});
+</script>
+
 
 
   <script>
